@@ -1,0 +1,71 @@
+-- Table: public.users
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users
+(
+    userid bigserial,
+    fname character varying COLLATE pg_catalog."default" NOT NULL,
+    lname character varying COLLATE pg_catalog."default" NOT NULL,
+    mname character varying COLLATE pg_catalog."default",
+    pwd character varying(12) COLLATE pg_catalog."default" NOT NULL,
+    job_title character varying COLLATE pg_catalog."default",
+    c_name character varying COLLATE pg_catalog."default",
+    c_url character varying COLLATE pg_catalog."default",
+    set_side_status character varying COLLATE pg_catalog."default",
+    city character varying COLLATE pg_catalog."default" NOT NULL,
+    p_number character varying COLLATE pg_catalog."default" NOT NULL,
+    email character varying COLLATE pg_catalog."default" NOT NULL,
+    isactive boolean,
+    isdeleted boolean,
+    createdate date,
+    lastmodifieddate date,
+    CONSTRAINT users_pkey PRIMARY KEY (userid)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+
+	
+	
+	
+	
+
+-- Table: public.file
+
+-- DROP TABLE public.file;
+
+CREATE TABLE public.file
+(
+    fileid bigserial,
+    f_sol_number character varying COLLATE pg_catalog."default",
+    f_set_aside_status character varying COLLATE pg_catalog."default",
+    f_fac_clear character varying COLLATE pg_catalog."default",
+    f_con_title character varying COLLATE pg_catalog."default",
+    f_price numeric,
+    f_desc character varying COLLATE pg_catalog."default",
+    f_weight double precision,
+    f_tstamp date NOT NULL,
+    isactive boolean,
+    isdeleted boolean,
+    createdate date,
+    lastmodifieddate date,
+    createdby character varying COLLATE pg_catalog."default",
+    updatedby character varying COLLATE pg_catalog."default",
+    CONSTRAINT file_pkey PRIMARY KEY (fileid)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.users ADD COLUMN isadmin boolean DEFAULT false;
+ALTER TABLE users ALTER COLUMN pwd TYPE character varying(80);
+ALTER TABLE file ADD COLUMN f_url character varying;
+ALTER TABLE file ADD COLUMN deleted_at TIMESTAMP DEFAULT NOW()
+UPDATE public.file SET deleted_at = NULL
+
+
+

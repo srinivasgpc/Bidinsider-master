@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample to test file upload locally</title>
+  </head>
+  <body>
+    <form class="fileupload" action="api/file/create" method="post" enctype="multipart/form-data">
+      <h1>Upload File Here</h1>
+      <input type="file" name="document" value="">
+      <br />
+      <input type="text" name="f_sol_number" placeholder="file solicitation number">
+      <br />
+      <input type="text" name="f_set_aside_status" placeholder="file set status">
+      <br />
+      <input type="text" name="f_fac_clear"placeholder="facility clear" >
+      <br />
+      number <input type="text" name="f_price" placeholder="price">
+      <br />
+      <input type="text" name="f_desc"placeholder="description" >
+      <br />
+      number <input type="text" name="f_weight">
+      <br />
+      <input type="text" name="f_con_title" placeholder="Title">
+
+      <input type="submit" />
+    </form>
+  </body>
+</html>
